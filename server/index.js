@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const pool = require("./db");
+const port = process.env.PORT || 5000
 
 //middleware
 app.use(cors());
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 //v// test insert into test_db table
-app.post("/postcontact", async(req, res) => {
+app.post("/postcontact", cors(), async(req, res) => {
     try {
         
         const datetime = new Date();
@@ -42,6 +43,6 @@ app.get("/getcontactinfo", async(req, res) => {
     }
 })
 
-app.listen(5000, () => {
-    console.log("server has started on port 5000")
+app.listen(port, () => {
+    console.log("server is listening at port 5000")
 });

@@ -22,7 +22,8 @@ const useSubmit = () => {
       const response = fetch("https://personal-portfolio-nodejs-webapp.azurewebsites.net/postcontact", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(body)
+        body: JSON.stringify(body),
+        mode: "no-cors"
       })
 
       console.log(response)
