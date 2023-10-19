@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/960183f4-a397-4052-8f5f-1f709bdb1452/resourceGroups/personal-portfolio-rg/providers/Microsoft.Web/sites/personal-portfolio-nodejs-webapp",
+    "appService.deploySubpath": "server"
+}

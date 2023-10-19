@@ -19,7 +19,7 @@ const useSubmit = () => {
       
       const body = {...data}
       
-      const response = fetch("http://localhost:5000/postcontact", {
+      const response = fetch("https://personal-portfolio-nodejs-webapp.azurewebsites.net/postcontact", {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(body)
