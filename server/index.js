@@ -3,6 +3,9 @@ const cors = require("cors");
 const app = express();
 const pool = require("./db");
 const port = process.env.PORT || 5000
+const path = require('path');
+
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 //middleware
 app.use(cors());
