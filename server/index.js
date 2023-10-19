@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const pool = require("./db");
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 const path = require('path');
 
 app.use(express.static(path.resolve(__dirname, "../client/build")));
@@ -37,20 +37,15 @@ app.post("/postcontact", cors(), async(req, res) => {
 //^//
 
 //v// get all from test_db
-app.get("/getcontactinfo", async(req, res) => {
-    try {
-        const allTest = await pool.query("SELECT * FROM contact_submissions");
-        res.json(allTest.rows);
-    } catch (error) {
-        console.error(error.message)
-    }
-})
+app.get("/test", (req, res) => {
+    res.json({ message: "Hello from server!" });
+  });
 
 //catch all other api calls
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+app.get('/', (req,res) => {
+    res.sendFile(process.cwd()+"../client/build/index.html");
+  });
 
 app.listen(port, () => {
-    console.log("server is listening at port 5000")
+    console.log("server is listening at port env or 8080")
 });
