@@ -46,6 +46,11 @@ app.get("/getcontactinfo", async(req, res) => {
     }
 })
 
+//catch all other api calls
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
 app.listen(port, () => {
     console.log("server is listening at port 5000")
 });
