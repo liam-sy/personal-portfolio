@@ -51,7 +51,6 @@ const ProjectsSection = (props) => {
         display="grid"
         gridTemplateColumns={winWidth < 750 ? "repeat(1,minmax(0,1fr))" : "repeat(2,minmax(0,1fr))"}
         gridGap={8}
-        
       >
         {projects.map((project) => (
           <Card

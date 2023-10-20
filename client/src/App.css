@@ -11,6 +11,8 @@
   padding: 0.5rem;
 }
 
+
+/* Project section cards */
 .card-box {
   text-align: left;
   color: black;
@@ -44,7 +46,7 @@
   margin: 0 auto 0.5rem 1rem;
   font-weight: bold;
 }
-
+/* --- */
 
 #project-header-span {
   color: #3c4b5a;
@@ -80,4 +82,19 @@
 #submit-button {
   box-shadow: 0px 5px 25px #333236;
 }
+
+/* Fade-in styling */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 0.8s ease-out;
+  will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+/* --- */
 
