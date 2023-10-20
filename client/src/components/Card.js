@@ -8,6 +8,7 @@ const Card = ({ title, description, imageSrc }) => {
   const [isVisible, setVisible] = useState(true);
   const domRef = useRef();
 
+  //check to see if the cards are visible
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => setVisible(entry.isIntersecting));
