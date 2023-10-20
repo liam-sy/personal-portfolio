@@ -2,7 +2,7 @@ import {useState} from "react";
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// My solution to making an api call on submission
+// My solution to making an api call on submission. It works when the server.js is up and running
 const useSubmit = () => {
   const [isLoading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);

@@ -19,11 +19,10 @@ import {useAlertContext} from "../context/alertContext";
 
 
 const LandingSection = (props) => {
+
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
-
   const winWidth = props.windowWidth;
-  
 
   const formik = useFormik({
     initialValues: {firstName: '', email: '', type: '', comment: ''},
@@ -56,6 +55,8 @@ const LandingSection = (props) => {
       }
     }
   }, [response]);
+
+  const optionStyle = {backgroundColor: "#ffffff", color: "#000000"}
   
   return (
     <FullScreenSection
@@ -93,12 +94,12 @@ const LandingSection = (props) => {
               <FormControl isInvalid={!!formik.errors.type && formik.touched.type}>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
                 <Select id="type" {...formik.getFieldProps("type")}>
-                  <option value="">Select</option>
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
+                  <option style={optionStyle} value="">Select</option>
+                  <option style={optionStyle} value="hireMe">Freelance project proposal</option>
+                  <option style={optionStyle} value="openSource">
                     Open source consultancy session
                   </option>
-                  <option value="other">Other</option>
+                  <option style={optionStyle} value="other">Other</option>
                 </Select>
                 <FormErrorMessage>{formik.errors.type}</FormErrorMessage>
               </FormControl >
