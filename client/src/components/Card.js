@@ -6,12 +6,12 @@ import React from "react";
 const Card = ({ title, description, imageSrc }) => {
 
   return (
-    <VStack className="card-box">
+    <VStack className="card-box drop-shadow">
         <div id="card-img-container">
           <Image src={imageSrc}/>
         </div>
         <Heading size="md">{title}</Heading>
-        <Text fontSize="md">{description}</Text>
+        <Text fontSize="md" className="card-text">{description}</Text>
         <p className="card-see-more">See more <span><FontAwesomeIcon icon={faArrowRight} size="1x" /></span></p>
       
     </VStack>

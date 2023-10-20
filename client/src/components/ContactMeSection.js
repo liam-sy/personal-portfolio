@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import {
   Box,
@@ -18,9 +18,12 @@ import useSubmit from "../hooks/useSubmit";
 import {useAlertContext} from "../context/alertContext";
 
 
-const LandingSection = () => {
+const LandingSection = (props) => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
+
+  const winWidth = props.windowWidth;
+  
 
   const formik = useFormik({
     initialValues: {firstName: '', email: '', type: '', comment: ''},
@@ -57,13 +60,15 @@ const LandingSection = () => {
   return (
     <FullScreenSection
       isDarkBackground
-      backgroundColor="#512DA8"
+      backgroundColor="#6a687a"
       py={16}
       spacing={8}
+      className="contact-me-fullscreen"
+      id="contact-me-section"
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
-          Contact me (static)
+      <VStack w={winWidth > 1024 ? 1024 : winWidth} p={16} alignItems="flex-start">
+        <Heading as="h1" id="contact-me-header">
+          Contact me <span id="contact-header-span">(form practice)</span>
         </Heading>
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={runSubmit} >
@@ -108,7 +113,7 @@ const LandingSection = () => {
               </FormControl>
               <Button 
               type="submit" 
-              colorScheme="purple" 
+              id="submit-button"
               width="full"
               isDisabled={Object.keys(formik.errors).length > 0 ? true : false}>  
                 {isLoading ? ". . .": "Submit"}
