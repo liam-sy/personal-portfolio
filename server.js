@@ -37,13 +37,14 @@ app.post("/postcontact", cors(), async(req, res) => {
 //^//
 
 //v// get all from test_db
-app.get("/test", (req, res) => {
-    res.json({ message: "Hello from server!" });
+app.get("/client", (req, res) => {
+    res.sendFile(process.cwd()+"/client/build/index.html");
   });
 
 //catch all other api calls
 app.get('/', (req,res) => {
-    res.sendFile(process.cwd()+"/client/build/index.html");
+    res.send('Hello World!');
+    
   });
 
 app.listen(port, () => {
