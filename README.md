@@ -1,2 +1,2 @@
 # personal-portfolio
- an attemot at a personal portfolio website
+ first crack at a personal portfolio website
