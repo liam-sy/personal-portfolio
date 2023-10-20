@@ -42,7 +42,7 @@ app.get("/test", (req, res) => {
   });
 
 //catch all other api calls
-app.get('/personal-portfolio-webapp2.git', (req,res) => {
+app.get('/', (req,res) => {
     res.sendFile(process.cwd()+"../client/build/index.html");
   });
 
