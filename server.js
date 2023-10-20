@@ -5,7 +5,7 @@ const pool = require("./db");
 const port = process.env.PORT || 8080
 const path = require('path');
 
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(process.cwd()+"/client/build/"));
 
 //middleware
 app.use(cors());
@@ -43,7 +43,7 @@ app.get("/test", (req, res) => {
 
 //catch all other api calls
 app.get('/', (req,res) => {
-    res.sendFile(process.cwd()+"../client/build/index.html");
+    res.sendFile(process.cwd()+"/client/build/index.html");
   });
 
 app.listen(port, () => {
