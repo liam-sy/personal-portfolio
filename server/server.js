@@ -5,7 +5,7 @@ const pool = require("./db");
 const port = process.env.PORT || 8080
 const path = require('path');
 
-app.use(express.static(process.cwd()+"/client/build/"));
+app.use(express.static(process.cwd()+"/public/build/"));
 
 //middleware
 app.use(cors());
@@ -38,15 +38,9 @@ app.post("/postcontact", cors(), async(req, res) => {
 
 //v// get all from test_db
 app.get("/client", (req, res) => {
-    res.sendFile(process.cwd()+"/client/build/index.html");
-  });
-
-//catch all other api calls
-app.get('/', (req,res) => {
-    res.send('Hello World!');
-    
+    res.sendFile(process.cwd()+"/public/build/index.html");
   });
 
 app.listen(port, () => {
-    console.log("server is listening at port env or 8080")
+    console.log("server is listening at port env")
 });
