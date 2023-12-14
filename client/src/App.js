@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
+import AboutMe from "./components/AboutMe";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
@@ -10,6 +11,18 @@ import { AlertProvider } from "./context/alertContext";
 import Alert from "./components/Alert";
 
 function App() {
+
+  const colors = {
+    "bright1": "#F03A47",
+    "bright2": "#AF5B5B",
+    "base1": "#F6F4F3",
+    "base2": "#DDDCDB",
+    "dark1": "#276FBF",
+    "dark2": "#183059"
+
+  }
+  
+
 
   //v// Screen size
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -31,11 +44,12 @@ function App() {
     <ChakraProvider>
       <AlertProvider>
         <main>
-          <Header />
-          <LandingSection windowWidth={windowWidth}/>
-          <ProjectsSection windowWidth={windowWidth}/>
-          <ContactMeSection windowWidth={windowWidth}/>
-          <Footer />
+          <Header colors={colors}/>
+          <LandingSection windowWidth={windowWidth} colors={colors}/>
+          <AboutMe windowWidth={windowWidth} colors={colors}/>
+          <ProjectsSection windowWidth={windowWidth} colors={colors}/>
+          <ContactMeSection windowWidth={windowWidth} colors={colors}/>
+          <Footer/>
           <Alert />
         </main>
       </AlertProvider>

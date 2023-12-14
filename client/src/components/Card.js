@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect, useRef } from "react";
 
-const Card = ({ title, description, imageSrc }) => {
+const Card = ({ title, description, imageSrc, link }) => {
 
   const [isVisible, setVisible] = useState(true);
   const domRef = useRef();
@@ -27,7 +27,7 @@ const Card = ({ title, description, imageSrc }) => {
           </div>
           <Heading size="md">{title}</Heading>
           <Text fontSize="md" className="card-text">{description}</Text>
-          <p className="card-see-more">See more <span><FontAwesomeIcon icon={faArrowRight} size="1x" /></span></p>
+          {link != "" ? <p className="card-see-more"><a href={link} target="#"> Check it out! <span><FontAwesomeIcon icon={faArrowRight} size="1x" /></span> </a> </p> : <p>Thanks for checking in!</p>}
         
       </VStack>
   );

@@ -11,6 +11,12 @@
   padding: 0.5rem;
 }
 
+#profile-photo {
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 /* Project section cards */
 .card-box {
@@ -64,6 +70,7 @@
 }
 
 .text-shadow {
+  z-index: 5;
   text-shadow: 0px 0px 25px rgb(0, 0, 0);
 }
 
@@ -102,3 +109,32 @@
 }
 /* --- */
 
+.highlight-wrapper {
+  height:60px;
+  width: 20rem;
+  border-radius: 7px;
+  margin-top: -5rem;
+  position: relative;
+  bottom: -5.2rem;
+  overflow: hidden;
+}
+
+.highlighted-area {
+  height: 60px;
+  border-radius: 7px;
+  z-index: 0;
+  transform: translateX(-10vw);
+  transition: transform 1s ease-out;
+}
+
+.highlighted-area.is-visible {
+  transform: none;
+}
+
+#philosophy-heading .highlighted-area{
+  transform: translateX(10vw);
+}
+
+#philosophy-heading .highlighted-area.is-visible {
+  transform: none;
+}

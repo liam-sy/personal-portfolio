@@ -36,7 +36,9 @@ const socialsTags = socials.map((item) => {
   return (<a key={item.url} href={item.url} className="a-tag-header" target="_blank"> <FontAwesomeIcon icon={item.icon} size="2x" /> </a>)
 })
 
-const Header = () => {
+const Header = (props) => {
+
+  const colors = props.colors;
 
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
@@ -84,8 +86,9 @@ const Header = () => {
       transitionProperty="transform"
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
-      backgroundColor="#18181b"
+      backgroundColor={colors["dark2"]}
       className="header-box"
+      zIndex={10}
     >
       <Box color="white" maxWidth="1280px" margin="auto">
         <HStack
@@ -99,6 +102,7 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
+            <a href="#about-me" onClick={handleClick("about-me")}>About Me</a>
             <a href="#projects" onClick={handleClick("projects")}>Projects</a>
             <a href="#contact-me" onClick={handleClick("contact-me")}>Contact Me</a>
             </HStack>

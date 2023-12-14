@@ -69,7 +69,7 @@ const LandingSection = (props) => {
     >
       <VStack w={winWidth > 1024 ? 1024 : winWidth} p={16} alignItems="flex-start">
         <Heading as="h1" id="contact-me-header">
-          Contact me <span id="contact-header-span">(form practice)</span>
+          Contact me
         </Heading>
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={runSubmit} >
